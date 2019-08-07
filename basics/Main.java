@@ -24,47 +24,42 @@ public class Main {
 
   // Pluralize function 
   public static String pluralize(String word, int number){
-    // int dogCount = 1;
-    if(number == 0 || number > 1){
-      return word + "s";
-    } else if (number == 1) {
+    if(number == 1){
       return word;
     }
-  
-    return word;   
+    return word + "s";   
   }
+
 
   //Flipping coins 
   public static void flipNHeads(int n){
     int totalNumberOfFlips = 0;
     int numberOfHeads = 0;
 
-    while(numberOfHeads < n){
+    while(numberOfHeads < n){  
+      totalNumberOfFlips++; 
+       //flip coins
       double random = Math.random();
-      totalNumberOfFlips++;
+     
       if(random < 0.5){
         System.out.println("tails");
         numberOfHeads = 0;
-      } else {
-        System.out.println("heads");
+      } else if(random >= 0.5){
         numberOfHeads++;
-        System.out.println("it took " + totalNumberOfFlips + " flips to flip " + numberOfHeads + " heads in a row");
+        System.out.println("heads");
       }
-
     }
-    
+    System.out.println("it took " + totalNumberOfFlips + " "+ pluralize("flip", totalNumberOfFlips) + " to flip " + n + pluralize(" head", n)+ " in a row"); 
   }
 
   //Command line Clock
   public static void clock() throws InterruptedException{
-    while(true)
-     {
+    while(true){
       LocalDateTime now = LocalDateTime.now(); 
       String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
       System.out.println("local time now : " + time);
       Thread.sleep(1000);
     }
-   
-
   }
+
 }
