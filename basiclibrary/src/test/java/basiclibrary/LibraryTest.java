@@ -7,8 +7,29 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
-    @Test public void testSomeLibraryMethod() {
-        Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+    //Test for rolling dice
+    @Test public void rollTest(){
+
+        assertEquals(2, Library.roll(2).length);
     }
+    @Test public void rollTest_expectedFailure() {
+        assertNotEquals (3, Library.roll(2).length);
+        assertNotEquals (2.0, Library.roll(2).length);
+
+    }
+    @Test public void rollTest_edgeCase() {
+        assertEquals(0, Library.roll(0).length);
+    }
+
+    // Test cases for containsDuplicate
+//    @Test public void containsDuplicatesTest() {
+//        assertEquals(new int[]{1, 2, 4, 5}, Library.containsDuplicates(new int[]{1, 2, 6, 7}));
+//    }
+
+    @Test public void calculateAverageTest() {
+        assertEquals(6, Library.calculateAverage(new int[]{10, 2, 3, 4, 5, 6, 7, 8, 9}));
+    }
+
+
+
 }
