@@ -3,8 +3,47 @@
  */
 package basiclibrary;
 
+import java.util.Arrays;
+
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+
+    //Rolling dice
+    public static int[] roll(int n) {
+        int[] valueArr = new int[n];
+
+        //Roll the dice
+        int random = (int)Math.ceil(Math.random());
+        for( int i = 0; i < n; i++){
+            valueArr[i] = random;
+        }
+        System.out.println(Arrays.toString(valueArr));
+        return valueArr;
     }
+
+    //Contains duplicates
+    public static boolean containsDuplicates(int[] testArr){
+        for(int i = 0; i < testArr.length; i++){
+            for(int k = i+1; i < testArr.length; k++){
+                if(k != i && testArr[i] == testArr[k]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //Calculating average
+    public static int calculateAverage(int[] testArr){
+        int sum = 0;
+        int average = 0;
+        for(int i = 0; i < testArr.length; i++) {
+            sum += testArr[i];
+        }
+        average = sum / testArr.length;
+        System.out.println("average is: " + average);
+        return average;
+    }
+
+    //Arrays of Arrays
+
 }
