@@ -12,19 +12,19 @@ public class Library {
         int[] valueArr = new int[n];
 
         //Roll the dice
-        int random = (int)Math.ceil(Math.random());
+        int random = (int)(Math.floor(Math.random()*6) +1);
         for( int i = 0; i < n; i++){
             valueArr[i] = random;
         }
-        System.out.println(Arrays.toString(valueArr));
+//        System.out.println(Arrays.toString(valueArr));
         return valueArr;
     }
 
     //Contains duplicates
-    public static boolean containsDuplicates(int[] testArr){
+    public static boolean containsDuplicates(String[] testArr){
         for(int i = 0; i < testArr.length; i++){
             for(int k = i+1; i < testArr.length; k++){
-                if(k != i && testArr[i] == testArr[k]) {
+                if (testArr[i] != null && testArr[i].equals(testArr[k])) {
                     return true;
                 }
             }
@@ -33,17 +33,28 @@ public class Library {
     }
 
     //Calculating average
-    public static int calculateAverage(int[] testArr){
+    public static double calculateAverage(int[] testArr){
         int sum = 0;
-        int average = 0;
         for(int i = 0; i < testArr.length; i++) {
             sum += testArr[i];
         }
-        average = sum / testArr.length;
-        System.out.println("average is: " + average);
+        double average = (double)sum / (double) testArr.length;
+//        System.out.println("average is: " + average);
         return average;
     }
 
     //Arrays of Arrays
+    public static int[] calculateAvgOfArrayOfArrays(int[][] arrs) {
+        int[] minAvgArray = arrs[0];
+        for(int[]currentArray : arrs){
+            if(calculateAverage(currentArray) < calculateAverage(minAvgArray)){
+                minAvgArray = currentArray;
+            }
+        }
+//        System.out.println(Arrays.toString(minAvgArray));
+        return minAvgArray;
+    }
+
+
 
 }
