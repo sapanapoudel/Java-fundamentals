@@ -10,7 +10,7 @@ public class LibraryTest {
     //Test for rolling dice
     @Test public void rollTest(){
 
-        assertEquals(2, Library.roll(2).length);
+        assertEquals(5, Library.roll(5).length);
     }
     @Test public void rollTest_expectedFailure() {
         assertNotEquals (3, Library.roll(2).length);
@@ -21,15 +21,28 @@ public class LibraryTest {
         assertEquals(0, Library.roll(0).length);
     }
 
-    // Test cases for containsDuplicate
-//    @Test public void containsDuplicatesTest() {
-//        assertEquals(new int[]{1, 2, 4, 5}, Library.containsDuplicates(new int[]{1, 2, 6, 7}));
-//    }
-
-    @Test public void calculateAverageTest() {
-        assertEquals(6, Library.calculateAverage(new int[]{10, 2, 3, 4, 5, 6, 7, 8, 9}));
+     //Test cases for containsDuplicate
+    @Test public void containsDuplicatesTest() {
+        assertTrue("an array with duplicates shoiuld return true",
+                Library.containsDuplicates(new String[]{"apple", "orange", "banana", "apple"}));
     }
 
+    //Test for calculating average
+    @Test public void calculateAverageTest() {
+        assertEquals(6.0, Library.calculateAverage(new int[]{10, 2, 3, 4, 5, 6, 7, 8, 9}), 0.000001);
+    }
+
+    //Test for Array of Arrays
+    @Test public void calculateAvgOfArrayOfArraysTest() {
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        assertArrayEquals("should return array with min average",
+                new int[]{55, 54, 60, 53, 59, 57, 61}, Library.calculateAvgOfArrayOfArrays(weeklyMonthTemperatures));
+    }
 
 
 }
