@@ -3,8 +3,58 @@
  */
 package basiclibrary;
 
+import java.util.Arrays;
+
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
+
+    //Rolling dice
+    public static int[] roll(int n) {
+        int[] valueArr = new int[n];
+
+        //Roll the dice
+        int random = (int)(Math.floor(Math.random()*6) +1);
+        for( int i = 0; i < n; i++){
+            valueArr[i] = random;
+        }
+//        System.out.println(Arrays.toString(valueArr));
+        return valueArr;
     }
+
+    //Contains duplicates
+    public static boolean containsDuplicates(String[] testArr){
+        for(int i = 0; i < testArr.length; i++){
+            for(int k = i+1; i < testArr.length; k++){
+                if (testArr[i] != null && testArr[i].equals(testArr[k])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //Calculating average
+    public static double calculateAverage(int[] testArr){
+        int sum = 0;
+        for(int i = 0; i < testArr.length; i++) {
+            sum += testArr[i];
+        }
+        double average = (double)sum / (double) testArr.length;
+//        System.out.println("average is: " + average);
+        return average;
+    }
+
+    //Arrays of Arrays
+    public static int[] calculateAvgOfArrayOfArrays(int[][] arrs) {
+        int[] minAvgArray = arrs[0];
+        for(int[]currentArray : arrs){
+            if(calculateAverage(currentArray) < calculateAverage(minAvgArray)){
+                minAvgArray = currentArray;
+            }
+        }
+//        System.out.println(Arrays.toString(minAvgArray));
+        return minAvgArray;
+    }
+
+
+
 }
