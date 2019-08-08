@@ -24,4 +24,19 @@ calculateAverage()
 calculateAvgOfArraysOfArray()
 ```
 
+## lab3
+  
+#### Resources
+Classmate: Manish 
+* https://stackoverflow.com/questions/14831045/find-the-biggest-number-in-hashset-hashmap-java
+* https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html
+  
+###### Methods: 
+```
+weatherData()
+tally()
+readFile()
+```
+
+
 
