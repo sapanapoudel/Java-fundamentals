@@ -3,12 +3,51 @@
  */
 package linter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
+    public static void main(String[] args) {
+        String PATH = "/Users/pousapan/codefellows-401/java-fundamentals!/linter/src/main/resources/gates.js";
+        System.out.println(readFile(PATH));
+
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public static String readFile(String path) {
+        int errorCount = 0;
+        String errorMessage = "";
+        try {
+            File file = new File(path);
+            int lineCount = 1;
+
+            Scanner sc = new Scanner(file);
+            while(sc.hasNextLine()) {
+                String line =sc.nextLine();
+                if ((line.endsWith("{")) || (line.endsWith("}"))){
+                }
+                else if ((line.contains("if"))||(line.contains("else")) ){
+                }
+                else if (line.isEmpty()){
+                }
+                else {
+                    if (!line.endsWith(";")) {
+
+                        errorCount++;
+                        errorMessage = "Line " + lineCount + ": Missing semicolon.";
+                        return errorMessage;
+                    }
+                }
+                lineCount++;
+            }
+            return errorMessage;
+        }
+
+        catch (FileNotFoundException e) {
+            System.out.println(e);
+
+        }
+        return errorMessage;
     }
-}
+    }
+
