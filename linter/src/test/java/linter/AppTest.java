@@ -10,7 +10,8 @@ public class AppTest {
     @Test public void testAppHasAGreeting() {
         App classUnderTest = new App();
         String PATH = "/Users/pousapan/codefellows-401/java-fundamentals!/linter/src/main/resources/gates.js";
-        assertEquals("", "Line 3: Missing semicolon.", classUnderTest.readFile(PATH));
+        String expected = "Line 3: Missing semicolon.";
+        assertEquals("", expected, classUnderTest.readFile(PATH));
 
     }
 
