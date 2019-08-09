@@ -57,26 +57,32 @@ public class LibraryTest {
                 {65, 56, 55, 52, 55, 62, 57}
         };
 
-        assertTrue(Library.weatherData(weeklyMonthTemperatures).equals("Never saw temperature: 63"));
+        String expected = "High: 72\n" +
+                "Low: 51\n" +
+                "Never saw temperature: 63\n" +
+                "Never saw temperature: 67\n" +
+                "Never saw temperature: 68\n" +
+                "Never saw temperature: 69\n";
+        assertEquals("should be equal", expected, Library.weatherData(weeklyMonthTemperatures));
     }
 
-    //Test of tally
-    @Test public void tallyTest() {
-        List<String> votes = new ArrayList<>();
-        votes.add("Bush");
-        votes.add("Bush");
-        votes.add("Bush");
-        votes.add("Shrub");
-        votes.add("Hedge");
-        votes.add("Shrub");
-        votes.add("Bush");
-        votes.add("Hedge");
-        votes.add("Bush");
-
-        //String winner = Library.tally(votes);
-
-        assertEquals("should be same", "Bush",
-                Library.tally(votes));
-    }
+//    //Test of tally
+//    @Test public void tallyTest() {
+//        List<String> votes = new ArrayList<>();
+//        votes.add("Bush");
+//        votes.add("Bush");
+//        votes.add("Bush");
+//        votes.add("Shrub");
+//        votes.add("Hedge");
+//        votes.add("Shrub");
+//        votes.add("Bush");
+//        votes.add("Hedge");
+//        votes.add("Bush");
+//
+//        //String winner = Library.tally(votes);
+//
+//        assertEquals("should be same", "Bush",
+//                Library.tally(votes));
+//    }
 
 }
