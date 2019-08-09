@@ -16,7 +16,7 @@ public class App {
 
     public static String readFile(String path) {
         int errorCount = 0;
-        String errorMessage = "";
+        String errorMessage = " ";
         try {
             File file = new File(path);
             int lineCount = 1;
