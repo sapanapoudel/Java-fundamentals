@@ -6,21 +6,6 @@ package basiclibrary;
 import java.util.*;
 
 public class Library {
-    public static void main(String[] args) {
-        List<String> votes = new ArrayList<>();
-        votes.add("Bush");
-        votes.add("Bush");
-        votes.add("Bush");
-        votes.add("Shrub");
-        votes.add("Hedge");
-        votes.add("Shrub");
-        votes.add("Bush");
-        votes.add("Hedge");
-        votes.add("Bush");
-
-        String winner = tally(votes);
-        System.out.println(winner + " received the most votes!");
-    }
 
     //=====================Rolling dice=============================================
     public static int[] roll(int n) {
@@ -106,22 +91,35 @@ public class Library {
     }
 
     // ===============================Tallying Election========================
-    public static String tally(List<String> list) {
-        HashMap < String, Integer> vote = new HashMap<>();
-        for(String item : list) {
-            vote.put(item, 0);
-        }
-        int max = 0;
-        String maxVotes = " ";
-        for(String item : list) {
-            if(vote.get(item) > max) {
-                max = vote.get(item) + 1;
-                maxVotes = item;
+    public static String tally(List<String> votes) {
+        //Source: https://www.geeksforgeeks.org/find-winner-election-votes-represented-candidate-names/
+        //Insert all votes into Hashmap
+        HashMap<String, Integer> vote = new HashMap<>();
+        for (String item : votes) {
+            if (vote.keySet().contains(item)) {
+                vote.put(item, vote.get(item) + 1);
+            } else {
+                vote.put(item, 1);
             }
-            vote.put(item, max);
         }
+        // Traverse through map to find the candidate
+        // with maximum votes.
+        int max = 0;
+        String winner = " ";
 
-        return maxVotes;
+        //source: https://www.geeksforgeeks.org/map-entry-interface-java-example/
+        for (Map.Entry<String, Integer> entry : vote.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            if (value > max) {
+                max = value;
+                winner = key;
+            } else if (value == max && winner.compareTo(key) > 0) {
+                winner = key;
+            }
+        }
+        return winner;
+
     }
 
 }
