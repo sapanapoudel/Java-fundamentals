@@ -67,22 +67,24 @@ public class LibraryTest {
     }
 
 //    //Test of tally
-//    @Test public void tallyTest() {
-//        List<String> votes = new ArrayList<>();
-//        votes.add("Bush");
-//        votes.add("Bush");
-//        votes.add("Bush");
-//        votes.add("Shrub");
-//        votes.add("Hedge");
-//        votes.add("Shrub");
-//        votes.add("Bush");
-//        votes.add("Hedge");
-//        votes.add("Bush");
-//
-//        //String winner = Library.tally(votes);
-//
-//        assertEquals("should be same", "Bush",
-//                Library.tally(votes));
-//    }
+    @Test public void tallyTest() {
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = Library.tally(votes);
+        System.out.println(winner + " received the most votes!");
+        String expected = "Bush received the most votes!";
+
+        assertEquals("should be same", expected,
+                winner + " received the most votes!");
+    }
 
 }
