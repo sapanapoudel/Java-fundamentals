@@ -30,11 +30,14 @@ calculateAvgOfArraysOfArray()
 Classmate: Manish 
 * https://stackoverflow.com/questions/14831045/find-the-biggest-number-in-hashset-hashmap-java
 * https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html
+* https://www.geeksforgeeks.org/find-winner-election-votes-represented-candidate-names/
+* https://www.geeksforgeeks.org/map-entry-interface-java-example/
   
 ###### Methods: 
 ```
 weatherData()
 tally()
+//linter 
 readFile()
 ```
 
