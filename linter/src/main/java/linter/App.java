@@ -8,46 +8,48 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         String PATH = "/Users/pousapan/codefellows-401/java-fundamentals!/linter/src/main/resources/gates.js";
         System.out.println(readFile(PATH));
 
     }
 
-    public static String readFile(String path) {
-        int errorCount = 0;
-        String errorMessage = " ";
+    public static String readFile(String path) throws FileNotFoundException {
+        String message = " ";
         try {
             File file = new File(path);
             int lineCount = 1;
 
             Scanner sc = new Scanner(file);
+            if(!sc.hasNextLine())
+                message= "file is empty";
             while(sc.hasNextLine()) {
-                String line =sc.nextLine();
+                String line = sc.nextLine();
                 if ((line.endsWith("{")) || (line.endsWith("}"))){
+                    message = "Line " + lineCount + ": has no error";
                 }
                 else if ((line.contains("if"))||(line.contains("else")) ){
-                }
+                    message = "Line " + lineCount + ": has no error";
+                  }
                 else if (line.isEmpty()){
+                    message = "Line " + lineCount + ": has no error";
                 }
                 else {
                     if (!line.endsWith(";")) {
-
-                        errorCount++;
-                        errorMessage = "Line " + lineCount + ": Missing semicolon.";
-                        return errorMessage;
+                        message = "Line " + lineCount + ": Missing semicolon.";
+                        return message;
                     }
                 }
                 lineCount++;
             }
-            return errorMessage;
+            return message;
         }
 
         catch (FileNotFoundException e) {
             System.out.println(e);
 
         }
-        return errorMessage;
+        return message;
     }
     }
 
