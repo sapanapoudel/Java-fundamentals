@@ -40,6 +40,17 @@ tally()
 //linter 
 readFile()
 ```
+## lab6 : Inheritance and Interface
+#### Resources
+
+##### Methods
+```
+toString()
+```
+
+
+
+
 
 
 
