@@ -9,14 +9,12 @@ public class ReviewTest {
     Review myreview;
 
     @Before public void setUp() {
-        myreview = new Review("Testy-Food", 5, "$$", " This is good.", "Tim");
-
+        myreview = new Review("Smith", "I love this place", 4);
     }
 
-
-
     @Test public void toStringTest() {
-        assertEquals("should be equal", "Testy-Food has 5 stars . $$ This is good. author: Tim stars: 5",
+        assertEquals("should be equal",
+                "Review{author='Smith', textBody='I love this place', numStar=4, restaurant=null}",
                 myreview.toString());
     }
 
