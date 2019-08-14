@@ -8,6 +8,7 @@ public class Review {
     private String textBody;
     private int star;
     private Restaurant restaurant;
+    private Shop shop;
 
     //Constructor
     public Review(String author, String textBody, int star) {
@@ -52,6 +53,14 @@ public class Review {
 
     public void setTextBody(String textBody) {
         this.textBody = textBody;
+    }
+
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 
     //Instance Methods
