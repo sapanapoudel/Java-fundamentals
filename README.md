@@ -41,11 +41,16 @@ tally()
 readFile()
 ```
 ## lab6 : Inheritance and Interface
-#### Resources
+#### Approach
+In this lab, I created two class Restaurant and Review. The relation between Restaurant and Review is one to many. Because one restaurant can have multiple reviews. 
 
+#### Test 
+The purpose of my testing is to test the association between two classes. 
 ##### Methods
 ```
 toString()
+addReview()
+updateStarsOfRestaurant()
 ```
 
 
