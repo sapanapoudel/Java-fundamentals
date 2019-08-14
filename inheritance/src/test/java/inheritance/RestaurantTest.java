@@ -22,20 +22,18 @@ public class RestaurantTest {
     }
 
     @Test public void addReviewTest_singleReview() {
-        Restaurant myRestaurant = new Restaurant("IHOP", 2, 1 );
         Review review = new Review("Smith", "Breakfast is good", 3);
-        myRestaurant.addReview(review);
-        List<Review> testReview = myRestaurant.getReviews();
+        testyFood.addReview(review);
+        List<Review> testReview = testyFood.getReviews();
         assertTrue(testReview.size() == 1);
     }
 
     @Test public void addReviews_multipleReviews() {
-        Restaurant myRestaurant = new Restaurant("MacDonald", 3, 1);
         Review review = new Review("Tim", "I love dollar menu", 4);
         Review anotherReview = new Review("Jack", "It is bad", 1);
-        myRestaurant.addReview(review);
-        myRestaurant.addReview(anotherReview);
-        List<Review> testReview = myRestaurant.getReviews();
+        testyFood.addReview(review);
+        testyFood.addReview(anotherReview);
+        List<Review> testReview = testyFood.getReviews();
         assertTrue(testReview.size() == 2);
     }
 

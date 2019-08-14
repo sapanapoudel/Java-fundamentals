@@ -53,9 +53,16 @@ addReview()
 updateStarsOfRestaurant()
 ```
 
+## lab7 : Inheritance, day 2
+#### Approach 
+1. Create three new classes Shop, Theater, and ReviewMovie
+2. ReviewMovie extends the Review class
+3. All the basic functionalism's of classes are tested
 
-
-
-
+##### Methods 
+```
+toString()
+addReviewShop()
+```
 
 
