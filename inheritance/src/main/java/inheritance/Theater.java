@@ -3,16 +3,18 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant implements Reviewable{
+public class Theater implements Reviewable {
+
     //Instance Variables
-    private  String name;
+    private String name;
     private int stars;
-    private int price;
+    private List<String> movies = new ArrayList<>();
     private List<Review> reviews = new ArrayList<>();
 
-    public Restaurant(String name, int price) {
+    //Constructor
+    public Theater(String name, int stars) {
         this.name = name;
-        this.price = price;
+        this.stars = stars;
     }
 
     //Getter and Setter
@@ -28,17 +30,18 @@ public class Restaurant implements Reviewable{
         return stars;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
     public void setStars(int stars) {
         this.stars = stars;
     }
+
+    public List<String> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<String> movies) {
+        this.movies = movies;
+    }
+
     public List<Review> getReviews() {
         return reviews;
     }
@@ -47,26 +50,34 @@ public class Restaurant implements Reviewable{
         this.reviews = reviews;
     }
 
-    //Instance methods
+    //Instance Methods
+
+
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "name='" + name + '\'' +
+        return   "name='" + name + '\'' +
                 ", stars=" + stars +
-                ", price=" + price +
-                ", reviews=" + reviews +
-                '}';
+                ", movies=" + movies +
+                ", reviews=" + reviews;
     }
 
-    //add review method
-    @Override
+    //addMovie in the movies list
+    public void addMovie(String movieName) {
+        this.movies.add(movieName);
+    }
+
+    //Remove movieName from movies list
+    public void removeMovie(String moviesName) {
+        this.movies.remove(moviesName);
+    }
+
+    //add Review
     public void addReview(Review review) {
         this.reviews.add(review);
-        review.setRestaurant(this);
-        updateStars();
+        review.setMovie();
     }
 
-    //Method for update star of Restaurant with the star of review
+    //update star
     public void updateStars() {
         int currentStar = this.stars;
         for(int i = 0; i < getReviews().size(); i++) {

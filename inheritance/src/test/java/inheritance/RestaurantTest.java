@@ -12,12 +12,12 @@ public class RestaurantTest {
     Restaurant testyFood;
     @Before
     public void setUp() {
-        testyFood = new Restaurant("TestyFood", 4, 2);
+        testyFood = new Restaurant("Macdonald", 2);
     }
 
     @Test public void reviewTest() {
         assertEquals("should be equal",
-                "Restaurant{name='TestyFood', stars=4, price=2, reviews=[]}",
+                "Restaurant{name='Macdonald', stars=0, price=2, reviews=[]}",
                 testyFood.toString());
     }
 

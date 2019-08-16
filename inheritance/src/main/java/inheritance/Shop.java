@@ -1,21 +1,21 @@
 package inheritance;
-
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop {
+public class Shop implements Reviewable {
     //Fields
     private String shopName;
     private String description;
     private String numOfDollarSign;
-    private List<Review> reviewList = new ArrayList<>();
+    private int stars;
+    private List<Review> reviews = new ArrayList<>();
 
     //Constructor
-    public Shop (String shopName, String description, String numOfDollarSign){
+    public Shop (String shopName, String description, String numOfDollarSign, int stars){
         this.shopName= shopName;
         this.description = description;
         this.numOfDollarSign = numOfDollarSign;
+        this.stars = stars;
     }
 
     //Getter and Setter
@@ -45,24 +45,47 @@ public class Shop {
     }
 
 
-    public List<Review> getReviewList() {
-        return reviewList;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    public void setReviewList(List<Review> reviewList) {
-        this.reviewList = reviewList;
+    public void setReviews(List<Review> reviewList) {
+        this.reviews = reviewList;
     }
 
+    public int getStars() {
+        return stars;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
 
     //addReview Method
-    public void addReviewForShop(Review review) {
-        this.reviewList.add(review);
+    public void addReview(Review review) {
+        this.reviews.add(review);
         review.setShop(this);
+    }
+
+    //Update Star
+    public void updateStars() {
+        int currentStar = this.stars;
+        for(int i = 0; i < getReviews().size(); i++) {
+            currentStar += getReviews().get(i).getStar();
+        }
+        currentStar /= (getReviews().size());
+        this.stars = currentStar;
     }
 
     //toString Method
     @Override
     public String toString() {
-        return "In " + this.shopName + ", " + this.description + ": " + this.numOfDollarSign;
+        return "Shop{" +
+                "shopName='" + shopName + '\'' +
+                ", description='" + description + '\'' +
+                ", numOfDollarSign='" + numOfDollarSign + '\'' +
+                ", stars=" + stars +
+                ", reviews=" + reviews +
+                '}';
     }
 }

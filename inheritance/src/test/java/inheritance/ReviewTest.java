@@ -14,7 +14,7 @@ public class ReviewTest {
 
     @Test public void toStringTest() {
         assertEquals("should be equal",
-                "Review{author='Smith', textBody='I love this place', numStar=4, restaurant=null}",
+                "author='Smith', textBody='I love this place', numStar=4, restaurant=null",
                 myreview.toString());
     }
 
