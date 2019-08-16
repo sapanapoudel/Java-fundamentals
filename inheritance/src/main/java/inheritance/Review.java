@@ -1,14 +1,14 @@
 package inheritance;
 
-
-
 public class Review {
     //Instance variables
     private String author;
     private String textBody;
     private int star;
+    private String movie;
     private Restaurant restaurant;
     private Shop shop;
+//    private Theater theater;
 
     //Constructor
     public Review(String author, String textBody, int star) {
@@ -20,6 +20,12 @@ public class Review {
             this.star = star;
         }
     }
+
+    //Overloading Constructor
+    public Review(String movie){
+        this.movie = movie;
+    }
+
 
     //Getter and Setter
     public String getAuthor() {
@@ -63,14 +69,23 @@ public class Review {
         this.shop = shop;
     }
 
-    //Instance Methods
-    public String toString() {
-        return "Review{" +
-                "author='" + author + '\'' +
-                ", textBody='" + textBody + '\'' +
-                ", numStar=" + star +
-                ", restaurant=" + restaurant +
-                '}';
+    public String getMovie() {
+        return movie;
     }
 
+    public void setMovie(Theater theater) {
+    }
+
+    //Instance Methods
+    public String toString() {
+        return "author='" + author + '\'' +
+                ", textBody='" + textBody + '\'' +
+                ", numStar=" + star +
+                ", restaurant=" + restaurant;
+    }
+
+
+    public void setMovie() {
+        this.movie = movie;
+    }
 }
